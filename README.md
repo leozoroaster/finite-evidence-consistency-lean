@@ -1,7 +1,7 @@
 # Finite-evidence consistency in Lean 4
 
 Lean 4/mathlib verification of the main characterization and stabilization
-proposition in *Finite Evidence and Consistent Inductive Inference*
+proposition in *An Order-Theoretic Characterization of Consistent Inductive Inference*
 (September 2026 manuscript).
 
 ## Verified statement
@@ -18,8 +18,16 @@ The main declaration is
 The order is chosen once for the whole class, and its minimum selector is derived,
 not assumed. There is no finiteness or countability restriction, uniform mistake
 bound, or global well-foundedness assumption. Empty domains and classes are
-included. The proof uses the standard classical foundations of Lean; the paper's
-separate discussion of ZF and choice is outside this formalization.
+included. The proof uses the standard classical foundations of Lean.
+
+## Verification scope
+
+This repository formalizes the main characterization (Theorem 2.1), stabilization
+of evidence (Proposition 4.1), and their supporting lemmas—not the entire paper.
+The later propositions on target codes and countable domains (Proposition 4.2)
+and consistency without a hypothesis-wise bound (Proposition 4.3, the
+ordinal-threshold separation example) are not formalized here. The discussions
+of computability and ZF/choice are also outside this formalization.
 
 ## Build and verify
 
@@ -54,7 +62,7 @@ ordered histories use lists, while traces use finite sets.
 | Consistency implies order | `consistent_implies_order` | [Converse](FiniteEvidence/Converse.lean) |
 | Least-subtrace construction | `selectedMinimum`, `select_eq_selectedMinimum` | [Minimum](FiniteEvidence/Minimum.lean) |
 | Main characterization (Theorem 2.1) | `finiteEvidence_characterization_relation` | [Main](FiniteEvidenceConsistency.lean) |
-| Stabilization and decoder agreement | `stabilization_and_agreement` | [Stabilization](FiniteEvidence/Stabilization.lean) |
+| Stabilization and decoder agreement (Proposition 4.1) | `stabilization_and_agreement` | [Stabilization](FiniteEvidence/Stabilization.lean) |
 
 [`Audit.lean`](Audit.lean) displays the main statement and core definitions, and
 rejects any change to the permitted axiom dependencies of twelve key results.
